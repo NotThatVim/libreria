@@ -1,0 +1,305 @@
+:root {
+    --bg: #faf6ef;
+    --surface: #f0e9da;
+    --ink: #2b2620;
+    --ink-soft: #5c5347;
+    --border: #d8cdb8;
+    --accent: #3b5d50;
+    --accent-hover: #2c4740;
+    --danger: #a4442f;
+    --success: #3b6b45;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+h1 {
+    font-size: 1.9rem;
+    margin: 0 0 0.3em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin: 1.6em 0 0.6em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover, a:focus-visible {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+body > * {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    padding: 0 1.25rem 3rem;
+}
+
+/* Nav e hr sono figli diretti di body (inseriti da header.php) e per un header
+   di sito ha senso che occupino tutta la larghezza della finestra, anche se il
+   contenuto sotto resta più stretto e centrato — altrimenti su schermi larghi
+   la barra sembra "fermarsi a metà pagina" invece di fare da intestazione. */
+body > nav,
+body > hr {
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 0.9rem;
+    align-items: center;
+    padding: 1rem 0;
+    font-size: 0.95rem;
+}
+
+nav a {
+    color: var(--ink-soft);
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover, nav a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 0 1.5rem;
+}
+
+/* --- Form --- */
+form {
+    margin: 1rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    display: block;
+    margin-top: 0.3rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+    font-size: 0.95rem;
+    min-width: 220px;
+}
+
+input:focus-visible, select:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0 1rem;
+}
+
+fieldset label {
+    display: inline-block;
+    margin-right: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-hover);
+}
+
+/* --- Contenitori di pagina: ogni pagina avvolge il proprio contenuto in UNO
+   di questi tre, così titolo e contenuto restano sempre sulla stessa colonna
+   centrata invece di sembrare storti l'uno rispetto all'altro --- */
+
+/* Pagine leggere: login, registrazione, home di benvenuto */
+.centered-page {
+    max-width: 320px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.centered-page form {
+    margin: 1.5rem 0 0;
+    text-align: left;
+}
+
+.centered-page input {
+    width: 100%;
+    min-width: 0;
+}
+
+.centered-page button {
+    display: block;
+    margin: 0.5rem auto 0;
+    min-width: 140px;
+}
+
+/* Pagine con form più corposi: aggiungi/modifica opera */
+.form-page {
+    max-width: 480px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.form-page form {
+    text-align: left;
+}
+
+.form-page input[type="text"],
+.form-page input[type="number"],
+.form-page select {
+    width: 100%;
+}
+
+.form-page button {
+    display: block;
+    margin: 1rem auto 0;
+}
+
+/* Pagine con tabelle/filtri: catalogo, libreria, statistiche, query esame, admin */
+.page-content {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+/* Form di filtro (catalogo, mia libreria): riga centrata invece che impilata */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    align-items: flex-end;
+    background: var(--surface);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.filter-form label {
+    margin-bottom: 0;
+}
+
+/* I controlli di filtro non hanno bisogno di essere larghi come un campo email/username:
+   restringendoli, più filtri stanno affiancati sulla stessa riga invece di andare a capo */
+.filter-form input,
+.filter-form select {
+    min-width: 130px;
+    width: auto;
+}
+
+/* Tabella catalogo: celle centrate, tranne la colonna del titolo */
+.catalog-table th,
+.catalog-table td {
+    text-align: center;
+}
+
+.catalog-table td:first-child,
+.catalog-table th:first-child {
+    text-align: left;
+}
+
+/* --- Tabelle --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.92rem;
+    background: #fff;
+}
+
+table, th, td {
+    border: 1px solid var(--border);
+}
+
+th {
+    background: var(--surface);
+    text-align: left;
+    padding: 0.6rem 0.7rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+td {
+    padding: 0.55rem 0.7rem;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #f6f1e6;
+}
+
+/* --- Messaggi di stato --- */
+p[style*="color: green"],
+p[style*="color: red"],
+p[style*="color: orange"] {
+    padding: 0.6rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+p[style*="color: green"] {
+    background: #e7f0e6;
+}
+
+p[style*="color: red"] {
+    background: #f5e6e2;
+}
+
+p[style*="color: orange"] {
+    background: #f6ecd9;
+}

@@ -1,0 +1,20 @@
+dopo il login dovrebbe aprirsi sulla libreria personale e non sulla pagina di atterraggio;
+
+quando viene selezionato "completo" capitoli letti=n_capitoli;
+
+nel catalogo aggiungere la possibilità di mostrare le opere inordine di popolarità (numero_lettori);
+
+eliminare Query esame, sostituirla aggiungendo opzioni su catalogo e libreria--> permettere di ordinare tramite popolarità; 
+
+permettere uso di filtri anche in libreria personale;
+
+_______________________
+
+devo:
+
+1. still fare la cosa del completamente automatico --DONE
+2. ordinare il catalogo per popolarità
+3. togliere dall'header query esame e home --DONE
+4. aggiungere i filtri in libreria personale --DONE
+5. linea random sopra da sistemare
+
